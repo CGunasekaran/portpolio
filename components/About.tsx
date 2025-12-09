@@ -42,7 +42,7 @@ export default function About() {
             </h3>
             <div className="space-y-4 text-gray-700 leading-relaxed">
               <p>
-                For the past 8+ years, I've been solving a question that
+                For the past 10+ years, I've been solving a question that
                 fascinates me: how do you build e-commerce platforms that scale
                 to millions of users while staying fast, reliable, and
                 delightful
