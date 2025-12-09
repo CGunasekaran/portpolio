@@ -66,7 +66,7 @@ export default function Hero() {
               </span>
               , high test coverage{" "}
               <span className="text-blue-600 dark:text-blue-400 font-medium">
-                (~90%)
+                (~95)
               </span>
               , and measurable user-facing performance gains.
             </p>
@@ -123,7 +123,7 @@ export default function Hero() {
               </div>
               <div className="text-center">
                 <div className="text-3xl font-bold text-green-600 dark:text-green-400">
-                  90%
+                  95%
                 </div>
                 <div className="text-sm text-neutral-600 dark:text-neutral-400 font-medium">
                   Test Coverage

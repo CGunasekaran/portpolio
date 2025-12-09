@@ -129,13 +129,12 @@ export default function Footer() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
             <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
               <p className="text-neutral-400 text-sm text-center sm:text-left">
-                © {currentYear} Gunasekaran. All rights reserved. Built with ❤️
-                using Next.js & Tailwind CSS.
+                © {currentYear} Gunasekaran. All rights reserved.
               </p>
               <div className="flex items-center gap-4 text-sm text-neutral-500">
                 <span className="flex items-center gap-1">
                   <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
-                  Available for opportunities
+                  Always learning, always growing
                 </span>
               </div>
             </div>

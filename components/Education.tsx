@@ -6,7 +6,7 @@ export default function Education() {
       location: "Coimbatore, India",
       icon: "🎓",
       level: "Master's",
-      year: "2010-2013",
+      year: "2011-2014",
       highlights: [
         "Software Engineering Focus",
         "Database Management",
@@ -19,7 +19,7 @@ export default function Education() {
       location: "Madurai, India",
       icon: "🎓",
       level: "Bachelor's",
-      year: "2007-2010",
+      year: "2008-2011",
       highlights: [
         "Programming Fundamentals",
         "Data Structures",

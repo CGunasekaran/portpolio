@@ -5,7 +5,8 @@ export default function Hobbies() {
       icon: "💻",
       gradient: "from-primary-500 via-blue-500 to-accent-500",
       borderColor: "border-primary-200 dark:border-primary-700",
-      iconBg: "bg-gradient-to-br from-primary-100 to-blue-100 dark:from-primary-900/50 dark:to-blue-900/50",
+      iconBg:
+        "bg-gradient-to-br from-primary-100 to-blue-100 dark:from-primary-900/50 dark:to-blue-900/50",
       hobbies: [
         {
           name: "Hackathons & coding competitions",
@@ -39,7 +40,8 @@ export default function Hobbies() {
       icon: "🎨",
       gradient: "from-accent-500 via-green-500 to-emerald-500",
       borderColor: "border-accent-200 dark:border-accent-700",
-      iconBg: "bg-gradient-to-br from-accent-100 to-green-100 dark:from-accent-900/50 dark:to-green-900/50",
+      iconBg:
+        "bg-gradient-to-br from-accent-100 to-green-100 dark:from-accent-900/50 dark:to-green-900/50",
       hobbies: [
         {
           name: "Chess or strategy games",
@@ -74,7 +76,8 @@ export default function Hobbies() {
       icon: "⚡",
       gradient: "from-orange-500 via-red-500 to-pink-500",
       borderColor: "border-orange-200 dark:border-orange-700",
-      iconBg: "bg-gradient-to-br from-orange-100 to-red-100 dark:from-orange-900/50 dark:to-red-900/50",
+      iconBg:
+        "bg-gradient-to-br from-orange-100 to-red-100 dark:from-orange-900/50 dark:to-red-900/50",
       hobbies: [
         {
           name: "Cricket, football, basketball",
@@ -128,8 +131,9 @@ export default function Hobbies() {
             </span>
           </h2>
           <p className="text-xl text-neutral-600 dark:text-neutral-400 max-w-4xl mx-auto leading-relaxed">
-            Beyond coding, I explore various interests that complement my technical skills,
-            foster creativity, and drive continuous personal growth.
+            Beyond coding, I explore various interests that complement my
+            technical skills, foster creativity, and drive continuous personal
+            growth.
           </p>
         </div>
 
@@ -144,16 +148,22 @@ export default function Hobbies() {
               <div className="modern-card h-full">
                 {/* Category header with gradient */}
                 <div className="relative p-6 pb-4">
-                  <div className={`absolute inset-0 bg-gradient-to-r ${category.gradient} opacity-5 rounded-t-2xl`}></div>
+                  <div
+                    className={`absolute inset-0 bg-gradient-to-r ${category.gradient} opacity-5 rounded-t-2xl`}
+                  ></div>
                   <div className="relative flex items-center space-x-4">
-                    <div className={`w-16 h-16 rounded-2xl ${category.iconBg} flex items-center justify-center text-2xl border ${category.borderColor}`}>
+                    <div
+                      className={`w-16 h-16 rounded-2xl ${category.iconBg} flex items-center justify-center text-2xl border ${category.borderColor}`}
+                    >
                       {category.icon}
                     </div>
                     <div>
                       <h3 className="text-2xl font-bold text-neutral-900 dark:text-neutral-100">
                         {category.title}
                       </h3>
-                      <div className={`w-12 h-1 bg-gradient-to-r ${category.gradient} rounded-full mt-2`}></div>
+                      <div
+                        className={`w-12 h-1 bg-gradient-to-r ${category.gradient} rounded-full mt-2`}
+                      ></div>
                     </div>
                   </div>
                 </div>
@@ -196,23 +206,36 @@ export default function Hobbies() {
                   💡
                 </div>
                 <blockquote className="text-xl font-medium text-neutral-700 dark:text-neutral-300 leading-relaxed">
-                  "These diverse interests help me bring unique perspectives to problem-solving
-                  and foster continuous learning both in and outside the tech world."
+                  "These diverse interests help me bring unique perspectives to
+                  problem-solving and foster continuous learning both in and
+                  outside the tech world."
                 </blockquote>
                 <div className="flex items-center justify-center space-x-6 mt-8">
                   <div className="text-center">
-                    <div className="text-2xl font-bold text-primary-600 dark:text-primary-400">15+</div>
-                    <div className="text-sm text-neutral-600 dark:text-neutral-400">Active Hobbies</div>
+                    <div className="text-2xl font-bold text-primary-600 dark:text-primary-400">
+                      15+
+                    </div>
+                    <div className="text-sm text-neutral-600 dark:text-neutral-400">
+                      Active Hobbies
+                    </div>
                   </div>
                   <div className="w-1 h-12 bg-gradient-to-b from-primary-500 to-accent-500 rounded-full opacity-30"></div>
                   <div className="text-center">
-                    <div className="text-2xl font-bold text-accent-600 dark:text-accent-400">3</div>
-                    <div className="text-sm text-neutral-600 dark:text-neutral-400">Categories</div>
+                    <div className="text-2xl font-bold text-accent-600 dark:text-accent-400">
+                      3
+                    </div>
+                    <div className="text-sm text-neutral-600 dark:text-neutral-400">
+                      Categories
+                    </div>
                   </div>
                   <div className="w-1 h-12 bg-gradient-to-b from-accent-500 to-purple-500 rounded-full opacity-30"></div>
                   <div className="text-center">
-                    <div className="text-2xl font-bold text-purple-600 dark:text-purple-400">∞</div>
-                    <div className="text-sm text-neutral-600 dark:text-neutral-400">Learning</div>
+                    <div className="text-2xl font-bold text-purple-600 dark:text-purple-400">
+                      ∞
+                    </div>
+                    <div className="text-sm text-neutral-600 dark:text-neutral-400">
+                      Learning
+                    </div>
                   </div>
                 </div>
               </div>

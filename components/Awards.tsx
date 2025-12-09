@@ -19,7 +19,7 @@ export default function Awards() {
     {
       title: "GitHub Copilot Champion",
       description:
-        "Achieved 90% active engagement and shared best practices across organization",
+        "Achieved 95% active engagement and shared best practices across organization",
       icon: "🚀",
       year: "2024",
       category: "Innovation & Adoption",
@@ -121,7 +121,7 @@ export default function Awards() {
               </div>
               <div className="text-center">
                 <div className="text-2xl font-bold text-primary-600 dark:text-primary-400">
-                  90%
+                  95%
                 </div>
                 <div className="text-sm text-neutral-600 dark:text-neutral-400">
                   Copilot Engagement

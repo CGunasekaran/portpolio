@@ -35,7 +35,7 @@ export default function About() {
     },
     {
       icon: "🎯",
-      title: "90% Test Coverage",
+      title: "95% Test Coverage",
       subtitle: "Quality assurance",
       description: "Implemented comprehensive testing strategies",
     },
@@ -120,7 +120,7 @@ export default function About() {
                   ,
                   <span className="text-blue-600 dark:text-blue-400 font-medium">
                     {" "}
-                    90% code coverage
+                    95% code coverage
                   </span>
                   , and performance metrics that set industry benchmarks.
                 </p>

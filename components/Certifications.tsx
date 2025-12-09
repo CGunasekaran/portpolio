@@ -13,7 +13,7 @@ export default function Certifications() {
       title: "AI & Modern Development Tools",
       items: [
         "Early adopter of AI-assisted development tools (GitHub Copilot, Ford LLM)",
-        "GitHub Copilot Champion with 90% engagement",
+        "GitHub Copilot Champion with 95% engagement",
       ],
       icon: "🤖",
       category: "Innovation",
