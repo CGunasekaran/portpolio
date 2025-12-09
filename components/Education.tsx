@@ -5,15 +5,15 @@ export default function Education() {
       institution: "Nehru Institute of Information Technology And Management",
       location: "Coimbatore",
       icon: "🎓",
-      level: "Master's"
+      level: "Master's",
     },
     {
       degree: "Bachelor of Science, Computer Science",
       institution: "Thiagarajar College of Arts And Science",
       location: "Madurai, India",
       icon: "🎓",
-      level: "Bachelor's"
-    }
+      level: "Bachelor's",
+    },
   ];
 
   return (
@@ -44,7 +44,7 @@ export default function Education() {
                     <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
                       <span className="text-2xl">{edu.icon}</span>
                     </div>
-                    
+
                     {/* Content */}
                     <div className="flex-1">
                       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4">
@@ -55,7 +55,7 @@ export default function Education() {
                           {edu.level}
                         </span>
                       </div>
-                      
+
                       <div className="space-y-2">
                         <p className="text-lg font-medium text-gray-800">
                           {edu.institution}
@@ -68,7 +68,7 @@ export default function Education() {
                     </div>
                   </div>
                 </div>
-                
+
                 {/* Decorative border */}
                 <div className="h-1 bg-gradient-to-r from-blue-500 to-purple-600"></div>
               </div>
@@ -82,11 +82,15 @@ export default function Education() {
             <div className="flex items-center justify-center gap-4 text-gray-600">
               <div className="flex items-center gap-2">
                 <span className="w-3 h-3 bg-blue-500 rounded-full"></span>
-                <span className="text-sm font-medium">Computer Science Specialization</span>
+                <span className="text-sm font-medium">
+                  Computer Science Specialization
+                </span>
               </div>
               <div className="flex items-center gap-2">
                 <span className="w-3 h-3 bg-purple-500 rounded-full"></span>
-                <span className="text-sm font-medium">Information Technology Focus</span>
+                <span className="text-sm font-medium">
+                  Information Technology Focus
+                </span>
               </div>
             </div>
           </div>
