@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ClientScripts from "@/components/ClientScripts";
+import PageLoader from "@/components/PageLoader";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -95,12 +96,7 @@ export default function RootLayout({
         className={`${inter.className} antialiased bg-background text-foreground transition-colors duration-300`}
       >
         {/* Page loading indicator */}
-        <div
-          id="page-loader"
-          className="fixed inset-0 bg-background z-50 flex items-center justify-center"
-        >
-          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary-500"></div>
-        </div>
+        <PageLoader />
 
         {/* Main layout */}
         <div className="relative">

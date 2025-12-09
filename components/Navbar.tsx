@@ -12,14 +12,14 @@ export default function Navbar() {
   useEffect(() => {
     // Set hydrated to true on mount to prevent hydration mismatch
     setIsHydrated(true);
-    
+
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
     };
 
     // Set initial scroll state
     handleScroll();
-    
+
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);

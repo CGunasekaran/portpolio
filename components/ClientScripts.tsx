@@ -4,14 +4,6 @@ import { useEffect } from "react";
 
 export default function ClientScripts() {
   useEffect(() => {
-    // Page loader
-    const handleLoad = () => {
-      const loader = document.getElementById("page-loader");
-      if (loader) {
-        loader.style.opacity = "0";
-        setTimeout(() => loader.remove(), 300);
-      }
-    };
 
     // Scroll to top functionality
     const scrollToTopBtn = document.getElementById("scroll-to-top");
@@ -58,7 +50,7 @@ export default function ClientScripts() {
     const initializeTheme = () => {
       const savedTheme = localStorage.getItem("theme");
       const prefersDark = window.matchMedia("(prefers-color-scheme: dark)");
-      
+
       if (savedTheme) {
         setTheme(savedTheme === "dark");
       } else {
@@ -72,16 +64,15 @@ export default function ClientScripts() {
       };
 
       prefersDark.addEventListener("change", handlePreferenceChange);
-      
+
       return () => {
         prefersDark.removeEventListener("change", handlePreferenceChange);
       };
     };
 
     // Add event listeners
-    window.addEventListener("load", handleLoad);
     window.addEventListener("scroll", handleScroll);
-    
+
     if (scrollToTopBtn) {
       scrollToTopBtn.addEventListener("click", handleScrollToTop);
     }
@@ -96,9 +87,8 @@ export default function ClientScripts() {
 
     // Cleanup function
     return () => {
-      window.removeEventListener("load", handleLoad);
       window.removeEventListener("scroll", handleScroll);
-      
+
       if (scrollToTopBtn) {
         scrollToTopBtn.removeEventListener("click", handleScrollToTop);
       }
