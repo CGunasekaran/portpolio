@@ -130,7 +130,7 @@ export default function Contact() {
               </div>
 
               <p className="text-lg text-neutral-600 dark:text-neutral-400 mb-8 leading-relaxed">
-                I'm always open to discussing new opportunities, interesting
+                I am always open to discussing new opportunities, interesting
                 projects, or just having a great conversation about technology
                 and innovation.
               </p>
