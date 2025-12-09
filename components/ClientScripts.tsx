@@ -4,7 +4,6 @@ import { useEffect } from "react";
 
 export default function ClientScripts() {
   useEffect(() => {
-
     // Scroll to top functionality
     const scrollToTopBtn = document.getElementById("scroll-to-top");
 
