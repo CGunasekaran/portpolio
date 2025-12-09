@@ -3,7 +3,7 @@ export default function Education() {
     {
       degree: "Master of Computer Applications (MCA)",
       institution: "Nehru Institute of Information Technology And Management",
-      location: "Coimbatore",
+      location: "Coimbatore, India",
       icon: "🎓",
       level: "Master's",
     },
