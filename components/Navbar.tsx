@@ -30,6 +30,12 @@ export default function Navbar() {
               About
             </Link>
             <Link
+              href="#education"
+              className="text-gray-700 hover:text-blue-600 transition"
+            >
+              Education
+            </Link>
+            <Link
               href="#projects"
               className="text-gray-700 hover:text-blue-600 transition"
             >
@@ -95,6 +101,13 @@ export default function Navbar() {
               onClick={() => setIsOpen(false)}
             >
               About
+            </Link>
+            <Link
+              href="#education"
+              className="block py-2 text-gray-700 hover:text-blue-600"
+              onClick={() => setIsOpen(false)}
+            >
+              Education
             </Link>
             <Link
               href="#projects"

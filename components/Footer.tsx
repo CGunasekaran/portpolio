@@ -8,13 +8,13 @@ export default function Footer() {
           </p>
           <div className="flex gap-6 mt-4 md:mt-0">
             <a
-              href="https://github.com/yourusername"
+              href="https://github.com/CGunasekaran"
               className="text-gray-400 hover:text-white transition"
             >
               GitHub
             </a>
             <a
-              href="https://linkedin.com/in/yourusername"
+              href="https://www.linkedin.com/in/gunasekaran-chinraj-7a21b063/"
               className="text-gray-400 hover:text-white transition"
             >
               LinkedIn
