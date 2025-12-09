@@ -40,10 +40,10 @@ export async function POST(request: NextRequest) {
         EMAIL_USER: process.env.EMAIL_USER ? "Set" : "Missing",
         EMAIL_PASS: process.env.EMAIL_PASS ? "Set" : "Missing",
       });
-      
+
       // For now, let's log the message instead of failing
       console.log("Contact form submission:", { name, email, message });
-      
+
       return NextResponse.json(
         {
           message: "Message received! Email configuration is pending setup.",
