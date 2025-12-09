@@ -179,11 +179,6 @@ export default function Footer() {
                 <p className="text-neutral-700 dark:text-neutral-400 text-sm font-medium text-center sm:text-left">
                   © {currentYear} Gunasekaran. All rights reserved.
                 </p>
-                <div className="flex items-center gap-2 text-sm">
-                  <span className="px-3 py-1 bg-gradient-to-r from-primary-100 to-accent-100 dark:from-primary-900/30 dark:to-accent-900/30 text-primary-700 dark:text-primary-300 rounded-full border border-primary-200 dark:border-primary-800 font-medium">
-                    Made with ❤️ and ☕
-                  </span>
-                </div>
               </div>
               <div className="flex items-center gap-6 text-sm">
                 <span className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-green-100 to-emerald-100 dark:from-green-900/30 dark:to-emerald-900/30 text-green-700 dark:text-green-300 rounded-full border border-green-200 dark:border-green-800 font-medium">
