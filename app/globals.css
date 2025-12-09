@@ -19,6 +19,22 @@
   --font-mono: 'JetBrains Mono', 'Consolas', monospace;
 }
 
+/* Explicit light theme class */
+:root,
+.light {
+  /* Light mode colors */
+  --background: 255 255 255;
+  --foreground: 15 23 42;
+  --card: 255 255 255;
+  --card-foreground: 15 23 42;
+  --popover: 255 255 255;
+  --popover-foreground: 15 23 42;
+  --border: 226 232 240;
+  --input: 226 232 240;
+  --muted: 248 250 252;
+  --muted-foreground: 100 116 139;
+}
+
 .dark {
   /* Dark mode colors */
   --background: 2 6 23;
@@ -138,20 +154,188 @@ body {
   animation-delay: 500ms;
 }
 
+.animate-delay-700 {
+  animation-delay: 700ms;
+}
+
+.animate-delay-1000 {
+  animation-delay: 1000ms;
+}
+
 /* Modern card styles */
-.card-modern {
+.modern-card {
   background: rgb(var(--card));
+  color: rgb(var(--card-foreground));
   border: 1px solid rgb(var(--border));
   border-radius: 16px;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(10px);
 }
 
-.card-modern:hover {
+.modern-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }
 
-.dark .card-modern:hover {
+.dark .modern-card:hover {
   box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.25), 0 10px 10px -5px rgba(0, 0, 0, 0.1);
+}
+
+/* Enhanced light theme specific styles */
+.light .modern-card {
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 12px -2px rgba(0, 0, 0, 0.12), 0 2px 6px -1px rgba(0, 0, 0, 0.08);
+}
+
+.light .modern-card:hover {
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  box-shadow: 0 20px 32px -8px rgba(0, 0, 0, 0.15), 0 8px 16px -4px rgba(0, 0, 0, 0.1);
+}
+
+.light .glass {
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  box-shadow: 0 2px 8px -2px rgba(0, 0, 0, 0.1);
+}
+
+/* Enhanced light theme utility classes */
+.light .card-modern {
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 12px -2px rgba(0, 0, 0, 0.12), 0 2px 6px -1px rgba(0, 0, 0, 0.08);
+}
+
+.light .card-modern:hover {
+  border: 1px solid rgba(59, 130, 246, 0.25);
+  box-shadow: 0 20px 32px -8px rgba(0, 0, 0, 0.15), 0 8px 16px -4px rgba(0, 0, 0, 0.1);
+}
+
+/* Ensure proper theme-based text visibility */
+.light {
+  --text-primary: #0f172a;
+  --text-secondary: #374151;
+  --text-muted: #6b7280;
+}
+
+.dark {
+  --text-primary: #f8fafc;
+  --text-secondary: #d1d5db;
+  --text-muted: #9ca3af;
+}
+
+/* Default text colors */
+.light,
+.light * {
+  color: var(--text-primary);
+}
+
+.dark,
+.dark * {
+  color: var(--text-primary);
+}
+
+/* Specific overrides for light theme to ensure visibility */
+.light .text-neutral-100,
+.light .text-white {
+  color: #0f172a;
+}
+
+.light .text-neutral-200 {
+  color: #1f2937;
+}
+
+.light .text-neutral-300 {
+  color: #374151;
+}
+
+/* Light theme shadow utilities */
+.light .shadow-glow {
+  box-shadow: 0 0 24px rgba(59, 130, 246, 0.4), 0 8px 32px rgba(0, 0, 0, 0.12);
+}
+
+.light .shadow-glow-purple {
+  box-shadow: 0 0 24px rgba(139, 92, 246, 0.4), 0 8px 32px rgba(0, 0, 0, 0.12);
+}
+
+/* Enhanced border utilities for light theme */
+.light [class*="border-neutral-"] {
+  border-color: rgba(0, 0, 0, 0.15);
+}
+
+.light [class*="border-gray-"] {
+  border-color: rgba(0, 0, 0, 0.15);
+}
+
+.light .border {
+  border-color: rgba(0, 0, 0, 0.15);
+}
+
+/* Enhance Tailwind shadow utilities for light theme */
+.light .shadow-sm {
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+}
+
+.light .shadow {
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15), 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+}
+
+.light .shadow-md {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.15), 0 2px 4px -1px rgba(0, 0, 0, 0.1);
+}
+
+.light .shadow-lg {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.15), 0 4px 6px -2px rgba(0, 0, 0, 0.1);
+}
+
+.light .shadow-xl {
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.15), 0 10px 10px -5px rgba(0, 0, 0, 0.08);
+}
+
+.light .shadow-2xl {
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.2);
+}
+
+/* Enhanced backdrop blur for light theme */
+.light .backdrop-blur-sm {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.light .backdrop-blur {
+  background-color: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.light .backdrop-blur-md {
+  background-color: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+/* Light theme specific border overrides */
+.light .border-primary-200 {
+  border-color: rgba(59, 130, 246, 0.3);
+}
+
+.light .border-primary-800 {
+  border-color: rgba(59, 130, 246, 0.4);
+}
+
+.light .border-neutral-800 {
+  border-color: rgba(0, 0, 0, 0.2);
+}
+
+.light .border-neutral-700 {
+  border-color: rgba(0, 0, 0, 0.15);
+}
+
+.light .border-t {
+  border-top-color: rgba(0, 0, 0, 0.15);
+}
+
+/* Enhance gradient borders for light theme */
+.light .border-2 {
+  border-width: 2px;
+  border-color: rgba(59, 130, 246, 0.4);
 }

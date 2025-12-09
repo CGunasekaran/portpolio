@@ -91,6 +91,26 @@ export default function RootLayout({
         />
         <meta name="theme-color" content="#3b82f6" />
         <meta name="color-scheme" content="light dark" />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                const savedTheme = localStorage.getItem('theme');
+                const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                const shouldBeDark = savedTheme ? savedTheme === 'dark' : prefersDark;
+                
+                const root = document.documentElement;
+                if (shouldBeDark) {
+                  root.classList.add('dark');
+                  root.classList.remove('light');
+                } else {
+                  root.classList.add('light');  
+                  root.classList.remove('dark');
+                }
+              })();
+            `,
+          }}
+        />
       </head>
       <body
         className={`${inter.className} antialiased bg-background text-foreground transition-colors duration-300`}

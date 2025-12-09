@@ -39,36 +39,6 @@ export default function ClientScripts() {
       }
     };
 
-    // Theme preference detection
-    const setTheme = (dark: boolean) => {
-      document.documentElement.classList.toggle("dark", dark);
-      localStorage.setItem("theme", dark ? "dark" : "light");
-    };
-
-    // Initialize theme
-    const initializeTheme = () => {
-      const savedTheme = localStorage.getItem("theme");
-      const prefersDark = window.matchMedia("(prefers-color-scheme: dark)");
-
-      if (savedTheme) {
-        setTheme(savedTheme === "dark");
-      } else {
-        setTheme(prefersDark.matches);
-      }
-
-      const handlePreferenceChange = (e: MediaQueryListEvent) => {
-        if (!localStorage.getItem("theme")) {
-          setTheme(e.matches);
-        }
-      };
-
-      prefersDark.addEventListener("change", handlePreferenceChange);
-
-      return () => {
-        prefersDark.removeEventListener("change", handlePreferenceChange);
-      };
-    };
-
     // Add event listeners
     window.addEventListener("scroll", handleScroll);
 
@@ -81,9 +51,6 @@ export default function ClientScripts() {
       anchor.addEventListener("click", handleAnchorClick);
     });
 
-    // Initialize theme
-    const cleanupTheme = initializeTheme();
-
     // Cleanup function
     return () => {
       window.removeEventListener("scroll", handleScroll);
@@ -95,10 +62,6 @@ export default function ClientScripts() {
       document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
         anchor.removeEventListener("click", handleAnchorClick);
       });
-
-      if (cleanupTheme) {
-        cleanupTheme();
-      }
     };
   }, []);
 
