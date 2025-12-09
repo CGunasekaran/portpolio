@@ -3,14 +3,14 @@ import nodemailer from "nodemailer";
 
 export async function GET() {
   return NextResponse.json(
-    { 
+    {
       message: "Email API is working",
       timestamp: new Date().toISOString(),
       env_check: {
         EMAIL_USER: process.env.EMAIL_USER ? "Set" : "Missing",
         EMAIL_PASS: process.env.EMAIL_PASS ? "Set" : "Missing",
-        USE_ALTERNATIVE_SMTP: process.env.USE_ALTERNATIVE_SMTP || "false"
-      }
+        USE_ALTERNATIVE_SMTP: process.env.USE_ALTERNATIVE_SMTP || "false",
+      },
     },
     { status: 200 }
   );
@@ -20,7 +20,11 @@ export async function POST(request: NextRequest) {
   console.log("API route called - POST /api/send-email");
   try {
     const { name, email, message } = await request.json();
-    console.log("Request data received:", { name: !!name, email: !!email, message: !!message });
+    console.log("Request data received:", {
+      name: !!name,
+      email: !!email,
+      message: !!message,
+    });
 
     // Validate required fields
     if (!name || !email || !message) {
