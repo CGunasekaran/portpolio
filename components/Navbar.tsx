@@ -2,35 +2,19 @@
 
 import Link from "next/link";
 import { useState, useEffect } from "react";
+import { useTheme } from "@/contexts/ThemeContext";
+import ThemeToggle from "@/components/ThemeToggle";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
   const [isScrolled, setIsScrolled] = useState(false);
   const [isHydrated, setIsHydrated] = useState(false);
-  const [isDark, setIsDark] = useState(false);
+  const { actualTheme } = useTheme();
 
   useEffect(() => {
     // Set hydrated to true on mount to prevent hydration mismatch
     setIsHydrated(true);
-
-    // Initialize theme
-    const savedTheme = localStorage.getItem("theme");
-    const prefersDark = window.matchMedia(
-      "(prefers-color-scheme: dark)"
-    ).matches;
-    const shouldBeDark = savedTheme ? savedTheme === "dark" : prefersDark;
-
-    setIsDark(shouldBeDark);
-
-    const root = document.documentElement;
-    if (shouldBeDark) {
-      root.classList.remove("light");
-      root.classList.add("dark");
-    } else {
-      root.classList.remove("dark");
-      root.classList.add("light");
-    }
 
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
@@ -42,22 +26,6 @@ export default function Navbar() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
-  const toggleTheme = () => {
-    const newIsDark = !isDark;
-    setIsDark(newIsDark);
-
-    const root = document.documentElement;
-    if (newIsDark) {
-      root.classList.remove("light");
-      root.classList.add("dark");
-    } else {
-      root.classList.remove("dark");
-      root.classList.add("light");
-    }
-
-    localStorage.setItem("theme", newIsDark ? "dark" : "light");
-  };
   const navItems = [
     { href: "#home", label: "Home", icon: "🏠" },
     { href: "#about", label: "About", icon: "👨‍💼" },
@@ -120,45 +88,7 @@ export default function Navbar() {
 
           {/* Theme Toggle & CTA Button */}
           <div className="hidden md:flex items-center space-x-4">
-            <button
-              onClick={toggleTheme}
-              className="p-2 rounded-xl bg-white/10 dark:bg-neutral-800/30 hover:bg-white/20 dark:hover:bg-neutral-700/40 transition-all duration-300 backdrop-blur-sm border border-white/20 dark:border-neutral-700/50 group"
-              aria-label={
-                isDark ? "Switch to light mode" : "Switch to dark mode"
-              }
-            >
-              {isHydrated && isDark ? (
-                // Sun icon for light mode
-                <svg
-                  className="w-5 h-5 text-neutral-700 dark:text-neutral-300 group-hover:text-yellow-500 transition-colors duration-300"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
-                  />
-                </svg>
-              ) : (
-                // Moon icon for dark mode
-                <svg
-                  className="w-5 h-5 text-neutral-700 dark:text-neutral-300 group-hover:text-blue-400 transition-colors duration-300"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
-                  />
-                </svg>
-              )}
-            </button>
+            <ThemeToggle />
 
             <a
               href="#contact"
@@ -229,8 +159,11 @@ export default function Navbar() {
               </Link>
             ))}
 
-            {/* Mobile CTA */}
-            <div className="px-6 pt-4 pb-2">
+            {/* Mobile Theme Toggle & CTA */}
+            <div className="px-6 pt-4 pb-2 space-y-3">
+              <div className="flex justify-center">
+                <ThemeToggle />
+              </div>
               <a
                 href="#contact"
                 className="flex items-center justify-center space-x-2 w-full px-6 py-3 bg-gradient-to-r from-primary-500 to-accent-500 text-white rounded-xl font-medium hover:shadow-glow transition-all duration-300"

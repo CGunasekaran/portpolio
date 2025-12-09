@@ -5,6 +5,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ClientScripts from "@/components/ClientScripts";
 import PageLoader from "@/components/PageLoader";
+import { ThemeProvider } from "@/contexts/ThemeContext";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -95,17 +96,38 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{
             __html: `
               (function() {
-                const savedTheme = localStorage.getItem('theme');
-                const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-                const shouldBeDark = savedTheme ? savedTheme === 'dark' : prefersDark;
-                
-                const root = document.documentElement;
-                if (shouldBeDark) {
-                  root.classList.add('dark');
-                  root.classList.remove('light');
-                } else {
-                  root.classList.add('light');  
-                  root.classList.remove('dark');
+                try {
+                  const savedTheme = localStorage.getItem('theme') || 'system';
+                  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                  
+                  let shouldBeDark = false;
+                  if (savedTheme === 'dark') {
+                    shouldBeDark = true;
+                  } else if (savedTheme === 'light') {
+                    shouldBeDark = false;
+                  } else {
+                    // system preference
+                    shouldBeDark = prefersDark;
+                  }
+                  
+                  const root = document.documentElement;
+                  if (shouldBeDark) {
+                    root.classList.add('dark');
+                    root.classList.remove('light');
+                  } else {
+                    root.classList.add('light');  
+                    root.classList.remove('dark');
+                  }
+                  
+                  // Update theme-color meta tag
+                  const themeColorMeta = document.querySelector('meta[name="theme-color"]');
+                  if (themeColorMeta) {
+                    themeColorMeta.setAttribute('content', shouldBeDark ? '#020617' : '#3b82f6');
+                  }
+                } catch (e) {
+                  // Fallback to light mode if there's any error
+                  document.documentElement.classList.add('light');
+                  document.documentElement.classList.remove('dark');
                 }
               })();
             `,
@@ -115,39 +137,41 @@ export default function RootLayout({
       <body
         className={`${inter.className} antialiased bg-background text-foreground transition-colors duration-300`}
       >
-        {/* Page loading indicator */}
-        <PageLoader />
+        <ThemeProvider>
+          {/* Page loading indicator */}
+          <PageLoader />
 
-        {/* Main layout */}
-        <div className="relative">
-          <Navbar />
-          <main className="min-h-screen">{children}</main>
-          <Footer />
-        </div>
+          {/* Main layout */}
+          <div className="relative">
+            <Navbar />
+            <main className="min-h-screen">{children}</main>
+            <Footer />
+          </div>
 
-        {/* Scroll to top button */}
-        <button
-          id="scroll-to-top"
-          className="fixed bottom-8 right-8 w-12 h-12 bg-primary-500 hover:bg-primary-600 text-white rounded-full shadow-lg hover:shadow-glow transform hover:-translate-y-1 transition-all duration-300 opacity-0 pointer-events-none z-40"
-          aria-label="Scroll to top"
-        >
-          <svg
-            className="w-6 h-6 mx-auto"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
+          {/* Scroll to top button */}
+          <button
+            id="scroll-to-top"
+            className="fixed bottom-8 right-8 w-12 h-12 bg-primary-500 hover:bg-primary-600 text-white rounded-full shadow-lg hover:shadow-glow transform hover:-translate-y-1 transition-all duration-300 opacity-0 pointer-events-none z-40"
+            aria-label="Scroll to top"
           >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M5 10l7-7m0 0l7 7m-7-7v18"
-            />
-          </svg>
-        </button>
+            <svg
+              className="w-6 h-6 mx-auto"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M5 10l7-7m0 0l7 7m-7-7v18"
+              />
+            </svg>
+          </button>
 
-        {/* Client-side scripts */}
-        <ClientScripts />
+          {/* Client-side scripts */}
+          <ClientScripts />
+        </ThemeProvider>
       </body>
     </html>
   );
