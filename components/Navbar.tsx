@@ -12,12 +12,40 @@ export default function Navbar() {
   const [isHydrated, setIsHydrated] = useState(false);
   const { actualTheme } = useTheme();
 
+  const scrollToSection = (href: string) => {
+    const sectionId = href.slice(1); // Remove the '#' from href
+    const element = document.getElementById(sectionId);
+    if (element) {
+      const offsetTop = element.offsetTop - 80; // Account for fixed navbar height
+      window.scrollTo({
+        top: offsetTop,
+        behavior: "smooth",
+      });
+    }
+    setActiveSection(sectionId);
+  };
+
   useEffect(() => {
     // Set hydrated to true on mount to prevent hydration mismatch
     setIsHydrated(true);
 
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
+
+      // Update active section based on scroll position
+      const sections = navItems.map((item) => item.href.slice(1));
+      const current = sections.find((section) => {
+        const element = document.getElementById(section);
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          return rect.top <= 100 && rect.bottom >= 100;
+        }
+        return false;
+      });
+
+      if (current) {
+        setActiveSection(current);
+      }
     };
 
     // Set initial scroll state
@@ -61,15 +89,14 @@ export default function Navbar() {
           {/* Desktop Menu */}
           <div className="hidden lg:flex items-center space-x-1">
             {navItems.map((item) => (
-              <Link
+              <button
                 key={item.href}
-                href={item.href}
                 className={`group relative px-4 py-2 rounded-xl font-medium transition-all duration-300 hover:bg-white/10 dark:hover:bg-neutral-800/30 ${
                   activeSection === item.href.slice(1)
                     ? "text-primary-600 dark:text-primary-400"
                     : "text-neutral-700 dark:text-neutral-300 hover:text-primary-600 dark:hover:text-primary-400"
                 }`}
-                onClick={() => setActiveSection(item.href.slice(1))}
+                onClick={() => scrollToSection(item.href)}
               >
                 <span className="flex items-center space-x-2">
                   <span className="text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -82,7 +109,7 @@ export default function Navbar() {
                 {activeSection === item.href.slice(1) && (
                   <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-1 h-1 bg-primary-500 rounded-full"></div>
                 )}
-              </Link>
+              </button>
             ))}
           </div>
 
@@ -90,12 +117,12 @@ export default function Navbar() {
           <div className="hidden md:flex items-center space-x-4">
             <ThemeToggle />
 
-            <a
-              href="#contact"
+            <button
+              onClick={() => scrollToSection("#contact")}
               className="px-6 py-2 bg-gradient-to-r from-primary-500 to-accent-500 text-white rounded-xl font-medium hover:shadow-glow transform hover:-translate-y-0.5 transition-all duration-300"
             >
               Let's Talk
-            </a>
+            </button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -140,23 +167,22 @@ export default function Navbar() {
         >
           <div className="py-4 space-y-2 bg-white/5 dark:bg-neutral-800/20 backdrop-blur-sm rounded-2xl mb-4 border border-white/10 dark:border-neutral-700/20">
             {navItems.map((item, index) => (
-              <Link
+              <button
                 key={item.href}
-                href={item.href}
-                className={`flex items-center space-x-3 px-6 py-3 font-medium transition-all duration-300 hover:bg-white/10 dark:hover:bg-neutral-700/30 hover:translate-x-2 ${
+                className={`flex items-center space-x-3 px-6 py-3 font-medium transition-all duration-300 hover:bg-white/10 dark:hover:bg-neutral-700/30 hover:translate-x-2 w-full text-left ${
                   activeSection === item.href.slice(1)
                     ? "text-primary-600 dark:text-primary-400 bg-primary-50/50 dark:bg-primary-900/20"
                     : "text-neutral-700 dark:text-neutral-300"
                 }`}
                 onClick={() => {
                   setIsOpen(false);
-                  setActiveSection(item.href.slice(1));
+                  scrollToSection(item.href);
                 }}
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <span className="text-lg">{item.icon}</span>
                 <span>{item.label}</span>
-              </Link>
+              </button>
             ))}
 
             {/* Mobile Theme Toggle & CTA */}
@@ -164,14 +190,16 @@ export default function Navbar() {
               <div className="flex justify-center">
                 <ThemeToggle />
               </div>
-              <a
-                href="#contact"
+              <button
+                onClick={() => {
+                  setIsOpen(false);
+                  scrollToSection("#contact");
+                }}
                 className="flex items-center justify-center space-x-2 w-full px-6 py-3 bg-gradient-to-r from-primary-500 to-accent-500 text-white rounded-xl font-medium hover:shadow-glow transition-all duration-300"
-                onClick={() => setIsOpen(false)}
               >
                 <span>Let's Talk</span>
                 <span>💬</span>
-              </a>
+              </button>
             </div>
           </div>
         </div>

@@ -3,9 +3,13 @@
 import { useState, useEffect } from "react";
 
 export default function Footer() {
-  const [currentYear, setCurrentYear] = useState(2024);
+  const [currentYear, setCurrentYear] = useState(() =>
+    new Date().getFullYear()
+  );
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
     setCurrentYear(new Date().getFullYear());
   }, []);
 
@@ -177,17 +181,22 @@ export default function Footer() {
             <div className="flex flex-col sm:flex-row justify-between items-center gap-6">
               <div className="flex flex-col sm:flex-row items-center gap-4">
                 <p className="text-neutral-700 dark:text-neutral-400 text-sm font-medium text-center sm:text-left">
-                  © {currentYear} Gunasekaran. All rights reserved.
+                  © {mounted ? currentYear : new Date().getFullYear()}{" "}
+                  Gunasekaran. All rights reserved.
                 </p>
               </div>
-              <div className="flex items-center gap-6 text-sm">
+              <div className="flex flex-col sm:flex-row items-center gap-4 text-sm">
                 <span className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-green-100 to-emerald-100 dark:from-green-900/30 dark:to-emerald-900/30 text-green-700 dark:text-green-300 rounded-full border border-green-200 dark:border-green-800 font-medium">
                   <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
                   Always learning, always growing
                 </span>
-                <span className="text-xs text-neutral-500 dark:text-neutral-500 font-mono">
-                  v2.0.0
-                </span>
+                <div className="flex items-center gap-4 text-xs text-neutral-500 dark:text-neutral-500">
+                  <span className="font-mono">v{currentYear}.12.0</span>
+                  <span>
+                    Updated Dec {mounted ? new Date().getDate() : "9"},{" "}
+                    {currentYear}
+                  </span>
+                </div>
               </div>
             </div>
           </div>
