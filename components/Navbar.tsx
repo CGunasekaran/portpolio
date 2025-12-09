@@ -22,7 +22,7 @@ export default function Navbar() {
     const shouldBeDark = savedTheme ? savedTheme === "dark" : prefersDark;
 
     setIsDark(shouldBeDark);
-    
+
     const root = document.documentElement;
     if (shouldBeDark) {
       root.classList.remove("light");
@@ -46,7 +46,7 @@ export default function Navbar() {
   const toggleTheme = () => {
     const newIsDark = !isDark;
     setIsDark(newIsDark);
-    
+
     const root = document.documentElement;
     if (newIsDark) {
       root.classList.remove("light");
@@ -55,7 +55,7 @@ export default function Navbar() {
       root.classList.remove("dark");
       root.classList.add("light");
     }
-    
+
     localStorage.setItem("theme", newIsDark ? "dark" : "light");
   };
   const navItems = [

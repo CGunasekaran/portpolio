@@ -79,7 +79,7 @@ export default function Contact() {
     {
       icon: "📱",
       title: "Phone",
-      value: "Available on request",
+      value: "+91 9840327045 / 7010604956",
       href: "#",
       description: "For urgent matters",
     },
@@ -136,7 +136,7 @@ export default function Contact() {
               </p>
 
               {/* Contact methods grid */}
-              <div className="grid sm:grid-cols-2 gap-4">
+              <div className="space-y-4">
                 {contactMethods.map((method, index) => (
                   <a
                     key={index}
@@ -147,23 +147,28 @@ export default function Contact() {
                         ? "noopener noreferrer"
                         : undefined
                     }
-                    className="group p-4 rounded-xl bg-gradient-to-r from-neutral-50 to-neutral-100 dark:from-neutral-800 dark:to-neutral-700 hover:from-cyan-50 hover:to-blue-50 dark:hover:from-cyan-900/20 dark:hover:to-blue-900/20 transition-all duration-300 transform hover:-translate-y-1"
+                    className="group block p-4 rounded-xl bg-gradient-to-r from-neutral-50 to-neutral-100 dark:from-neutral-800 dark:to-neutral-700 hover:from-cyan-50 hover:to-blue-50 dark:hover:from-cyan-900/20 dark:hover:to-blue-900/20 transition-all duration-300 transform hover:-translate-y-1 border border-neutral-200 dark:border-neutral-600 hover:border-cyan-300 dark:hover:border-cyan-600"
                   >
-                    <div className="flex items-start gap-3">
-                      <span className="text-2xl group-hover:animate-bounce">
-                        {method.icon}
-                      </span>
-                      <div className="flex-1">
+                    <div className="flex items-start gap-4">
+                      <div className="w-12 h-12 bg-gradient-to-br from-cyan-500 to-blue-500 rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                        <span className="text-xl text-white group-hover:animate-bounce">
+                          {method.icon}
+                        </span>
+                      </div>
+                      <div className="flex-1 min-w-0">
                         <h4 className="font-semibold text-neutral-900 dark:text-neutral-100 mb-1 group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors">
                           {method.title}
                         </h4>
-                        <p className="text-sm font-medium text-cyan-600 dark:text-cyan-400 mb-1">
+                        <p className="text-sm font-medium text-cyan-600 dark:text-cyan-400 mb-1 break-all">
                           {method.value}
                         </p>
                         <p className="text-xs text-neutral-600 dark:text-neutral-400">
                           {method.description}
                         </p>
                       </div>
+                      <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-cyan-500 flex-shrink-0">
+                        →
+                      </span>
                     </div>
                   </a>
                 ))}
