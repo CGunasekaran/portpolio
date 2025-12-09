@@ -39,8 +39,6 @@ export default function ClientScripts() {
       }
     };
 
-
-
     // Add event listeners
     window.addEventListener("scroll", handleScroll);
 

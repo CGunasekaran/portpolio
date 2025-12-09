@@ -13,22 +13,32 @@ export default function Navbar() {
   useEffect(() => {
     // Set hydrated to true on mount to prevent hydration mismatch
     setIsHydrated(true);
-    
+
     // Initialize theme
     const savedTheme = localStorage.getItem("theme");
-    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    const prefersDark = window.matchMedia(
+      "(prefers-color-scheme: dark)"
+    ).matches;
     const shouldBeDark = savedTheme ? savedTheme === "dark" : prefersDark;
-    
+
     setIsDark(shouldBeDark);
-    document.documentElement.classList.toggle("dark", shouldBeDark);
     
+    const root = document.documentElement;
+    if (shouldBeDark) {
+      root.classList.remove("light");
+      root.classList.add("dark");
+    } else {
+      root.classList.remove("dark");
+      root.classList.add("light");
+    }
+
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
     };
 
     // Set initial scroll state
     handleScroll();
-    
+
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -36,9 +46,19 @@ export default function Navbar() {
   const toggleTheme = () => {
     const newIsDark = !isDark;
     setIsDark(newIsDark);
-    document.documentElement.classList.toggle("dark", newIsDark);
+    
+    const root = document.documentElement;
+    if (newIsDark) {
+      root.classList.remove("light");
+      root.classList.add("dark");
+    } else {
+      root.classList.remove("dark");
+      root.classList.add("light");
+    }
+    
     localStorage.setItem("theme", newIsDark ? "dark" : "light");
-  };  const navItems = [
+  };
+  const navItems = [
     { href: "#home", label: "Home", icon: "🏠" },
     { href: "#about", label: "About", icon: "👨‍💼" },
     { href: "#education", label: "Education", icon: "🎓" },
@@ -103,7 +123,9 @@ export default function Navbar() {
             <button
               onClick={toggleTheme}
               className="p-2 rounded-xl bg-white/10 dark:bg-neutral-800/30 hover:bg-white/20 dark:hover:bg-neutral-700/40 transition-all duration-300 backdrop-blur-sm border border-white/20 dark:border-neutral-700/50 group"
-              aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
+              aria-label={
+                isDark ? "Switch to light mode" : "Switch to dark mode"
+              }
             >
               {isHydrated && isDark ? (
                 // Sun icon for light mode

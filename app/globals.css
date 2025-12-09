@@ -19,6 +19,22 @@
   --font-mono: 'JetBrains Mono', 'Consolas', monospace;
 }
 
+/* Explicit light theme class */
+:root,
+.light {
+  /* Light mode colors */
+  --background: 255 255 255;
+  --foreground: 15 23 42;
+  --card: 255 255 255;
+  --card-foreground: 15 23 42;
+  --popover: 255 255 255;
+  --popover-foreground: 15 23 42;
+  --border: 226 232 240;
+  --input: 226 232 240;
+  --muted: 248 250 252;
+  --muted-foreground: 100 116 139;
+}
+
 .dark {
   /* Dark mode colors */
   --background: 2 6 23;
@@ -139,19 +155,41 @@ body {
 }
 
 /* Modern card styles */
-.card-modern {
+.modern-card {
   background: rgb(var(--card));
+  color: rgb(var(--card-foreground));
   border: 1px solid rgb(var(--border));
   border-radius: 16px;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(10px);
 }
 
-.card-modern:hover {
+.modern-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }
 
-.dark .card-modern:hover {
+.dark .modern-card:hover {
   box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.25), 0 10px 10px -5px rgba(0, 0, 0, 0.1);
+}
+
+/* Light theme specific styles */
+.light .modern-card {
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.light .glass {
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* Ensure text visibility */
+.light {
+  color: #0f172a;
+}
+
+.dark {
+  color: #f8fafc;
 }
