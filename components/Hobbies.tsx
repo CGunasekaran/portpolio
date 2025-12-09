@@ -4,48 +4,65 @@ const Hobbies = () => {
   const hobbyCategories = [
     {
       title: "Tech-Adjacent Hobbies",
+      icon: "💻",
+      color: "from-blue-500 to-purple-500",
+      bgColor: "bg-blue-100 dark:bg-blue-900/30",
+      textColor: "text-blue-700 dark:text-blue-300",
       hobbies: [
         {
           name: "Hackathons & coding competitions",
           description: "Participating in challenges or mentoring teams",
+          icon: "🏆",
         },
         {
           name: "Building side projects",
           description: "Creating apps, tools, or automation scripts",
+          icon: "🔧",
         },
         {
           name: "Photography (especially drone/tech photography)",
           description: "Merging creativity with technology",
+          icon: "📷",
         },
         {
           name: "Podcasting about tech trends",
           description: "Sharing industry insights",
+          icon: "🎙️",
         },
         {
           name: "Mentoring junior developers",
           description: "Community contribution",
+          icon: "🎓",
         },
       ],
     },
     {
       title: "Creative & Strategic",
+      icon: "🎨",
+      color: "from-green-500 to-teal-500",
+      bgColor: "bg-green-100 dark:bg-green-900/30",
+      textColor: "text-green-700 dark:text-green-300",
       hobbies: [
         {
           name: "Chess or strategy games",
           description: "Demonstrates analytical thinking",
+          icon: "♟️",
         },
         {
           name: "Reading (tech books, sci-fi, leadership)",
           description: "Shows continuous learning mindset",
+          icon: "📚",
         },
         {
           name: "Cooking/baking",
           description:
             "Shows precision, process-following, and experimentation",
+          icon: "🍳",
         },
         {
           name: "Traveling & Exploring new cultures",
           description: "Global perspective, adaptability",
+          icon: "✈️",
         },
 
         {
