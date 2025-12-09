@@ -156,4 +156,4 @@ export default function Education() {
     </section>
   );
 }
-// Deployment trigger
+// Force deployment - Light theme fix December 2025
