@@ -7,12 +7,19 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isHydrated, setIsHydrated] = useState(false);
 
   useEffect(() => {
+    // Set hydrated to true on mount to prevent hydration mismatch
+    setIsHydrated(true);
+    
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
     };
 
+    // Set initial scroll state
+    handleScroll();
+    
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -29,7 +36,7 @@ export default function Navbar() {
   return (
     <nav
       className={`fixed w-full z-50 transition-all duration-300 ${
-        isScrolled
+        isHydrated && isScrolled
           ? "glass shadow-lg border-b border-white/20 dark:border-neutral-800/50"
           : "bg-transparent"
       }`}

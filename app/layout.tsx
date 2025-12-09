@@ -3,6 +3,7 @@ import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import ClientScripts from "@/components/ClientScripts";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -129,74 +130,8 @@ export default function RootLayout({
           </svg>
         </button>
 
-        {/* Page scripts */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              // Page loader
-              window.addEventListener('load', function() {
-                const loader = document.getElementById('page-loader');
-                if (loader) {
-                  loader.style.opacity = '0';
-                  setTimeout(() => loader.remove(), 300);
-                }
-              });
-
-              // Scroll to top functionality
-              const scrollToTopBtn = document.getElementById('scroll-to-top');
-              
-              window.addEventListener('scroll', function() {
-                if (window.scrollY > 300) {
-                  scrollToTopBtn.style.opacity = '1';
-                  scrollToTopBtn.style.pointerEvents = 'auto';
-                } else {
-                  scrollToTopBtn.style.opacity = '0';
-                  scrollToTopBtn.style.pointerEvents = 'none';
-                }
-              });
-              
-              scrollToTopBtn.addEventListener('click', function() {
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-              });
-
-              // Enhanced scroll behavior for navigation
-              document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                  e.preventDefault();
-                  const target = document.querySelector(this.getAttribute('href'));
-                  if (target) {
-                    target.scrollIntoView({
-                      behavior: 'smooth',
-                      block: 'start'
-                    });
-                  }
-                });
-              });
-
-              // Theme preference detection
-              const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
-              
-              function setTheme(dark) {
-                document.documentElement.classList.toggle('dark', dark);
-                localStorage.setItem('theme', dark ? 'dark' : 'light');
-              }
-              
-              // Initialize theme
-              const savedTheme = localStorage.getItem('theme');
-              if (savedTheme) {
-                setTheme(savedTheme === 'dark');
-              } else {
-                setTheme(prefersDark.matches);
-              }
-              
-              prefersDark.addEventListener('change', (e) => {
-                if (!localStorage.getItem('theme')) {
-                  setTheme(e.matches);
-                }
-              });
-            `,
-          }}
-        />
+        {/* Client-side scripts */}
+        <ClientScripts />
       </body>
     </html>
   );
