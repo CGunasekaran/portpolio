@@ -38,7 +38,7 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="bg-gradient-to-br from-neutral-900 via-neutral-800 to-neutral-900 dark:from-neutral-950 dark:via-neutral-900 dark:to-neutral-950 text-white relative overflow-hidden">
+    <footer className="bg-gradient-to-br from-neutral-800 via-neutral-700 to-neutral-800 dark:from-neutral-950 dark:via-neutral-900 dark:to-neutral-950 text-neutral-100 relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-primary-900/20 via-transparent to-accent-900/20"></div>
 
@@ -50,7 +50,7 @@ export default function Footer() {
             <div className="lg:col-span-2">
               <div className="flex items-center space-x-3 mb-6">
                 <div className="w-12 h-12 bg-gradient-to-br from-primary-500 to-accent-500 rounded-xl flex items-center justify-center shadow-lg">
-                  <span className="text-white font-bold text-xl">G</span>
+                  <span className="text-neutral-100 font-bold text-xl">G</span>
                 </div>
                 <h3 className="text-2xl font-bold gradient-text">
                   Gunasekaran
@@ -70,7 +70,7 @@ export default function Footer() {
 
             {/* Quick links */}
             <div>
-              <h4 className="text-lg font-semibold text-white mb-6">
+              <h4 className="text-lg font-semibold text-neutral-100 mb-6">
                 Quick Links
               </h4>
               <ul className="space-y-3">
@@ -90,7 +90,7 @@ export default function Footer() {
 
             {/* Connect section */}
             <div>
-              <h4 className="text-lg font-semibold text-white mb-6">
+              <h4 className="text-lg font-semibold text-neutral-100 mb-6">
                 Connect With Me
               </h4>
               <div className="space-y-4">
@@ -110,7 +110,7 @@ export default function Footer() {
                       {social.icon}
                     </span>
                     <div>
-                      <div className="font-medium text-white group-hover:text-primary-400 transition-colors">
+                      <div className="font-medium text-neutral-100 group-hover:text-primary-400 transition-colors">
                         {social.name}
                       </div>
                       <div className="text-xs text-neutral-500">

@@ -185,11 +185,40 @@ body {
   border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
-/* Ensure text visibility */
+/* Ensure proper theme-based text visibility */
 .light {
-  color: #0f172a;
+  --text-primary: #0f172a;
+  --text-secondary: #374151;
+  --text-muted: #6b7280;
 }
 
 .dark {
-  color: #f8fafc;
+  --text-primary: #f8fafc;
+  --text-secondary: #d1d5db;
+  --text-muted: #9ca3af;
+}
+
+/* Default text colors */
+.light,
+.light * {
+  color: var(--text-primary);
+}
+
+.dark,
+.dark * {
+  color: var(--text-primary);
+}
+
+/* Specific overrides for light theme to ensure visibility */
+.light .text-neutral-100,
+.light .text-white {
+  color: #0f172a;
+}
+
+.light .text-neutral-200 {
+  color: #1f2937;
+}
+
+.light .text-neutral-300 {
+  color: #374151;
 }
