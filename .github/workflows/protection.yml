@@ -1,0 +1,59 @@
+name: Repository Protection
+
+on:
+  pull_request:
+    branches: [ main, master, template-branch ]
+  push:
+    branches: [ main, master, template-branch ]
+
+jobs:
+  validate-ownership:
+    runs-on: ubuntu-latest
+    if: github.actor != 'CGunasekaran'
+    
+    steps:
+      - name: Check Repository Ownership
+        run: |
+          echo "❌ Unauthorized push attempt detected"
+          echo "Only @CGunasekaran is authorized to make changes to this repository"
+          echo "Please fork the repository if you'd like to contribute"
+          exit 1
+
+  build-and-test:
+    runs-on: ubuntu-latest
+    if: github.actor == 'CGunasekaran'
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Type check
+        run: npx tsc --noEmit
+
+      - name: Build application
+        run: npm run build
+
+      - name: Run tests (if available)
+        run: npm test --if-present
+
+  deploy-notification:
+    runs-on: ubuntu-latest
+    needs: build-and-test
+    if: github.ref == 'refs/heads/main' && github.actor == 'CGunasekaran'
+    
+    steps:
+      - name: Deployment Success
+        run: |
+          echo "✅ Build successful - Ready for deployment"
+          echo "Repository owner: @CGunasekaran"
+          echo "Branch: ${{ github.ref_name }}"
+          echo "Commit: ${{ github.sha }}"

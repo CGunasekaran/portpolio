@@ -6,6 +6,7 @@ import Contact from "@/components/Contact";
 import Certifications from "@/components/Certifications";
 import Awards from "@/components/Awards";
 import Hobbies from "@/components/Hobbies";
+import MyApps from "@/components/MyApps";
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
       <Certifications />
       <Awards />
       <Projects />
+      <MyApps />
       <Hobbies />
       <Contact />
     </>
