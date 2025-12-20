@@ -59,8 +59,7 @@ export default function Navbar() {
     { href: "#about", label: "About", icon: "👨‍💼" },
     { href: "#education", label: "Education", icon: "🎓" },
     { href: "#projects", label: "Projects", icon: "🚀" },
-    { href: "#hobbies", label: "Hobbies", icon: "🎯" },
-    { href: "#contact", label: "Contact", icon: "📧" },
+    { href: "#myapps", label: "My Apps", icon: "📱" },
   ];
 
   return (
