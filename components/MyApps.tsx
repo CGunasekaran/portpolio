@@ -56,6 +56,16 @@ export default function MyApps() {
       tech: ["Builder", "Templates", "PDF"],
       color: "from-indigo-500 to-blue-500",
     },
+    {
+      id: 6,
+      title: "Video Chat App",
+      description:
+        "Real-time video chat application with WebRTC for seamless communication",
+      url: "https://video-chat-465t.onrender.com/",
+      icon: "📹",
+      tech: ["WebRTC", "Real-time", "Video"],
+      color: "from-pink-500 to-rose-500",
+    },
   ];
 
   const handleAppClick = (url: string) => {
