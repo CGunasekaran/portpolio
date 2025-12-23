@@ -66,6 +66,16 @@ export default function MyApps() {
       tech: ["WebRTC", "Real-time", "Video"],
       color: "from-pink-500 to-rose-500",
     },
+    {
+      id: 7,
+      title: "Chat Application",
+      description:
+        "Real-time messaging platform with instant communication and modern chat features",
+      url: "https://chat-app-o97w.onrender.com/",
+      icon: "💬",
+      tech: ["Real-time", "Messaging", "Chat"],
+      color: "from-teal-500 to-cyan-500",
+    },
   ];
 
   const handleAppClick = (url: string) => {
