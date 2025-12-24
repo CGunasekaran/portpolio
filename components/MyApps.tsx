@@ -106,6 +106,16 @@ export default function MyApps() {
       tech: ["Image Processing", "Media", "Converter"],
       color: "from-cyan-500 to-blue-500",
     },
+    {
+      id: 11,
+      title: "Personal Blog",
+      description:
+        "My personal blog where I share insights, tutorials, and thoughts on web development and technology",
+      url: "https://my-blog-mu-six-29.vercel.app/",
+      icon: "📝",
+      tech: ["Blog", "Next.js", "Content"],
+      color: "from-emerald-500 to-teal-500",
+    },
   ];
 
   const handleAppClick = (url: string) => {
