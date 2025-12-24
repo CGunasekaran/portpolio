@@ -76,6 +76,16 @@ export default function MyApps() {
       tech: ["Real-time", "Messaging", "Chat"],
       color: "from-teal-500 to-cyan-500",
     },
+    {
+      id: 8,
+      title: "Web Accessibility Checker",
+      description:
+        "Comprehensive web accessibility audit tool ensuring WCAG compliance and inclusive design",
+      url: "https://web-accessibility-checker.vercel.app",
+      icon: "♿",
+      tech: ["Accessibility", "WCAG", "Audit"],
+      color: "from-amber-500 to-orange-500",
+    },
   ];
 
   const handleAppClick = (url: string) => {
