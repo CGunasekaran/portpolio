@@ -86,6 +86,16 @@ export default function MyApps() {
       tech: ["Testing", "Code Generation", "Automation"],
       color: "from-amber-500 to-orange-500",
     },
+    {
+      id: 9,
+      title: "Media Converter Suite",
+      description:
+        "Powerful media conversion tool supporting multiple formats for audio, video, and image files",
+      url: "https://media-converter-tan.vercel.app/",
+      icon: "🎬",
+      tech: ["Media", "Converter", "FFmpeg"],
+      color: "from-violet-500 to-fuchsia-500",
+    },
   ];
 
   const handleAppClick = (url: string) => {
