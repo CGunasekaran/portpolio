@@ -78,12 +78,12 @@ export default function MyApps() {
     },
     {
       id: 8,
-      title: "Web Accessibility Checker",
+      title: "Test Generator Code",
       description:
-        "Comprehensive web accessibility audit tool ensuring WCAG compliance and inclusive design",
-      url: "https://web-accessibility-checker.vercel.app",
-      icon: "♿",
-      tech: ["Accessibility", "WCAG", "Audit"],
+        "Intelligent test case generator that automatically creates comprehensive unit tests for your code",
+      url: "https://web-accessibility-checker-tvj8.vercel.app/",
+      icon: "🧪",
+      tech: ["Testing", "Code Generation", "Automation"],
       color: "from-amber-500 to-orange-500",
     },
   ];
