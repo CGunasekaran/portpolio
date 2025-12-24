@@ -96,6 +96,16 @@ export default function MyApps() {
       tech: ["Media", "Converter", "FFmpeg"],
       color: "from-violet-500 to-fuchsia-500",
     },
+    {
+      id: 10,
+      title: "Passport Photo Generator",
+      description:
+        "Professional passport photo generator with automatic cropping, sizing, and format conversion",
+      url: "https://media-converter-51t4.vercel.app/",
+      icon: "📸",
+      tech: ["Image Processing", "Media", "Converter"],
+      color: "from-cyan-500 to-blue-500",
+    },
   ];
 
   const handleAppClick = (url: string) => {
