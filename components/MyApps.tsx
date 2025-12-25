@@ -136,6 +136,16 @@ export default function MyApps() {
       tech: ["Speech Recognition", "AI", "Transcription"],
       color: "from-rose-500 to-pink-500",
     },
+    {
+      id: 14,
+      title: "Universal Translator",
+      description:
+        "Powerful translation tool that breaks language barriers with real-time translation capabilities",
+      url: "https://universal-translator-eight.vercel.app/",
+      icon: "🌐",
+      tech: ["Translation", "AI", "Multilingual"],
+      color: "from-sky-500 to-blue-500",
+    },
   ];
 
   const handleAppClick = (url: string) => {
