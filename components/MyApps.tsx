@@ -116,6 +116,16 @@ export default function MyApps() {
       tech: ["Blog", "Next.js", "Content"],
       color: "from-emerald-500 to-teal-500",
     },
+    {
+      id: 12,
+      title: "Sonarqube Guide",
+      description:
+        "Comprehensive guide and documentation for Sonarqube code quality and security analysis platform",
+      url: "https://my-blog-wzyg.vercel.app/",
+      icon: "📊",
+      tech: ["Documentation", "Code Quality", "Sonarqube"],
+      color: "from-blue-500 to-indigo-500",
+    },
   ];
 
   const handleAppClick = (url: string) => {

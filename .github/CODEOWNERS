@@ -1,34 +1,6 @@
-# CODEOWNERS file for portpolio repository
+# CODEOWNERS file for portfolio repository
 # This file defines code ownership and review requirements
-# Only the specified owners can approve changes to protected files/directories
+# Only CGunasekaran has rights to commit and push changes to this repository
 
-# Global ownership - CGunasekaran owns everything in this repository
+# Global ownership - Only CGunasekaran can approve and push changes
 * @CGunasekaran
-
-# Specific critical files that require extra protection
-/.github/ @CGunasekaran
-/package.json @CGunasekaran
-/package-lock.json @CGunasekaran
-/tsconfig.json @CGunasekaran
-/next.config.ts @CGunasekaran
-/tailwind.config.ts @CGunasekaran
-
-# Source code directories
-/app/ @CGunasekaran
-/components/ @CGunasekaran
-/contexts/ @CGunasekaran
-/styles/ @CGunasekaran
-
-# Configuration files
-*.config.* @CGunasekaran
-*.json @CGunasekaran
-*.md @CGunasekaran
-
-# Environment and deployment files
-/.env* @CGunasekaran
-/vercel.json @CGunasekaran
-/Dockerfile* @CGunasekaran
-
-# Documentation
-/README.md @CGunasekaran
-/docs/ @CGunasekaran
