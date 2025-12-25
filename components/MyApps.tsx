@@ -126,6 +126,16 @@ export default function MyApps() {
       tech: ["Documentation", "Code Quality", "Sonarqube"],
       color: "from-blue-500 to-indigo-500",
     },
+    {
+      id: 13,
+      title: "Voice to Text",
+      description:
+        "Real-time voice transcription application that converts spoken words into text with high accuracy",
+      url: "https://voice-to-text-iota.vercel.app/transcribe",
+      icon: "🎤",
+      tech: ["Speech Recognition", "AI", "Transcription"],
+      color: "from-rose-500 to-pink-500",
+    },
   ];
 
   const handleAppClick = (url: string) => {
