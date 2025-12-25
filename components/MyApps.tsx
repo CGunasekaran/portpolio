@@ -71,7 +71,7 @@ export default function MyApps() {
       title: "Chat Application",
       description:
         "Real-time messaging platform with instant communication and modern chat features",
-      url: "https://chat-app-o97w.onrender.com/",
+      url: "https://video-chat-x6pn.vercel.app",
       icon: "💬",
       tech: ["Real-time", "Messaging", "Chat"],
       color: "from-teal-500 to-cyan-500",
